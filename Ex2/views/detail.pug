@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  .bg-light.py-4
+    .container
+      h4 Descrição do Processo
+        h5 Codigo: 
+          span(style="font-weight:400;font-size:14px") #{dados.codigo}  
+        h5 Título: 
+          span(style="font-weight:400;font-size:14px") #{dados.titulo}  
+        h5 Descrição: 
+          span(style="font-weight:400;font-size:14px") #{dados.descricao}  
+      if (dados.filhos.length >= 1)
+        #accordion1
+          .card
+            #headingOne.card-header
+              h5.mb-0
+                button.btn.btn-link.collapsed(data-toggle='collapse' data-target='#collapseOne' aria-expanded='false' aria-controls='collapseOne')
+                  | Filhos
+            #collapseOne.collapse(aria-labelledby='headingOne' data-parent='#accordion1')
+              each item in dados.filhos
+                .card-body(style='align-content: left;display: flex;flex-wrap: wrap;text-align: left;')
+                  h5.card-title(style='width:100%;text-align:left;')
+                    h6 Codigo: 
+                      a(href=`/info?item=${item.codigo}`)
+                        span(style="font-weight:400;font-size:14px") #{item.codigo}
+                  p.card-text(style='width:100%;') 
+                    h6 Descrição: 
+                       span(style="font-weight:400;font-size:14px") #{item.titulo}
+      if(dados.nivel = 3)
+        if(dados.termosInd.length >= 1)
+          #accordion2
+            .card
+              #headingTwo.card-header
+                h5.mb-0
+                  button.btn.btn-link.collapsed(data-toggle='collapse' data-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo')
+                    | Termos de Índice
+              #collapseTwo.collapse(aria-labelledby='headingTwo' data-parent='#accordion2')
+                each item2 in dados.termosInd
+                    .card-body(style='align-content: left;display: flex;flex-wrap: wrap;text-align: left;')
+                      h5.card-title(style='width:100%;text-align:left;')
+                        h6 Termo: 
+                          a(href=`/termosIndice#${item2.idTI}` style="font-weight:400;font-size:14px") #{item2.termo}
+                      p.card-text(style='width:100%;') 
+                        h6 Url:
+                          a(href=`/termosIndice#${item2.idTI}`) 
+                            span(style="font-weight:400;font-size:14px") #{item2.idTI}
+
+      p(style="text-align:center")
+        a.btn.btn-primary.m-2(href='/') Página Inicial
+        a.btn.btn-secondary.m-2(href='javascript:history.back()') Página Anterior
+      

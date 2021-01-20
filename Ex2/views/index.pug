@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .album.py-5.bg-light
+    .container
+      .row
+        each item in dados
+            .col.col-sm-6.col-md-4.col-lg-3.g-4
+              .card.text-center(style='height:100%;text-align:center')
+                .card-body(style='align-content: center;display: flex;flex-wrap: wrap;text-align: center;')
+                  h5.card-title(style='width:100%')
+                    a(href=`/info?item=${item.codigo}`) #{item.codigo} 
+                  p.card-text.text-center(style='width:100%;') #{item.titulo}
+    p(style="text-align:center")
+        a.btn.btn-primary.m-2(href='/') Página Inicial
+        a.btn.btn-secondary.m-2(href='javascript:history.back()') Página Anterior

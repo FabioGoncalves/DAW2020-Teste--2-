@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "projectRecord.dtd">
+<pr>
+    <meta>
+        <key>DAW 2020 Teste</key>
+        <title>Teste de DAW</title>
+        <bDate>20/01/2021</bDate>
+        <eDate>20/01/2021</eDate>
+        <supervisor>JCR</supervisor>
+        <supervisor>jcr@di.uminho.pt</supervisor>
+    </meta>
+    <team>
+        <member id="PG42827">
+            <nome>Fábio Gonçalves</nome>
+            <email>a42827@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>
+            De forma a testar os conhecimentos obtidos durante as aulas de DAW foi realizada a seguinte resolução para a avaliação proposta
+        </p>
+        <p>
+           Antes do processo de implementação foi necessário duplicar o campo <b>ref</b> e subsitituir o seu nome por <b>_id</b> para tal foi efectuado <i>find all para todos os "ref":</i> no editor, posteriormente
+           substitui-se as '/' por '_' e mais uma vez com auxílio do editor foi substituido linha a linha.
+           Quanto aos atributos pai e mae, utilizei a mesma abordagem, copiei o atributo title, e fiz replace do seu conteudo para apenas obter os nomes pedidos.
+           Para inserir o ficheiro json no Mongo utilizei o seguinte comando: <b>  mongoimport --db testeDaw --collection batizados --jsonArray  batismos.json </b>
+          
+        </p>
+        <p> 
+            No segundo exercício, foi implementada uma aplicação em <i>nodejs</i> que permita fazer a navegação sobre a API de dados, CLAV que tem como proposito a classificação e a avaliação de toda a documentação que circula na administração pública portuguesa.
+            Para iniciar a construção desta aplicação foi efectuado pedidos à <link url="http://clav-api.di.uminho.pt/v2/docs/">API</link>, com uma chave atribuída para o efeito. 
+            Sempre que aceder à pagina inicial esta irá fazer um pedido para ir buscar o token, desta forma termos acesso à API.
+            Para as primeiras questões foi utilizado o <i>Postman</i>:
+        </p>
+            <p>
+                <b>1. Quantos processos (nível 3) e quais são (obtem uma lista em JSON; podes concatenar sublistas invocando várias queries), pertencentes à descendência da classe 900? </b>
+                <u>R: Existem 842 processos de nível 3. Existem 21 processos de nível 3 descendentes de 900. </u>
+            </p>
+            <p>
+                <b>2. Quantas entidades estão catalogadas? </b>
+                <u>R: Existem 19 entidades </u>
+            </p>
+            <p>
+                <b>3. Quantos processos (classes de nível 3) se encontram na descendência de 900.10? </b>
+                <u>R: Existem 8 processos. </u>
+            </p>
+            <p>
+                <b>4. Quantos processos (classes de nível 3) estão relacionados com 900.10.505 </b>
+                <u>R: Com o processo 900.10.505 estão relacionados 5 processos. </u>
+            </p>
+        <p>
+           Na página inicial, é possivel encontrar dois <i>buttons</i>, relacionados com as Classes e os Termos de Índice. A página relativa às classes é onde colocamos todas as classes de nivel 1, com uma descrição associada.
+           Clicando numa classe, temos todos as informações associadas, tais como: Código, Título e Descrição. Numa parte mais abaixo temos então os filhos desta classe. Caso o nivel da classe seja nivel 3, a página irá apresentar
+           todos os termos de índice associados a esta classe. Todas as páginas têm os botôes de Página principal, página anterior e uma indicação para voltar ao topo da página.
+        </p>
+        <p>
+           Quanto aos Termos de Índice, temos uma tabela com os campos, Termo, Id e titulo de todos os Termos. Cada termo tem um id associado aos termos que estao presentes na classe,ou seja, clicando num termo na classe de nivel 3, iremos ser redirecionados para o local na tabela deste termo.
+           Aqui também temos os botões para retroceder e voltar á pagina inicial. Bem como o de voltar ao topo.
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="/projectR.xml">Project Record Xml</link>
+        <link url="../Ex1">Exercicio 1</link>
+        <link url="../Ex2">Exercicio 2</link>
+    </deliverables>
+</pr>

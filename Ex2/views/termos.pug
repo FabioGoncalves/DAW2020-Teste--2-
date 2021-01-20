@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .album.py-5.bg-light
+    .container
+      p(style="text-align:center")
+        a.btn.btn-primary.m-2(href='/') Página Inicial
+        a.btn.btn-secondary.m-2(href='javascript:history.back()') Página Anterior
+      table.table.table-hover
+        thead
+          tr
+            th(scope='col') Termo
+            th(scope='col') Id
+            th(scope='col') Título
+
+        tbody
+          each item in dados
+            tr(id=`http://jcr.di.uminho.pt/m51-clav#${item.id}`)
+              th(scope='row') #{item.termo} 
+              td 
+                a(href=`/info?item=${item.idClasse}`) #{item.idClasse}
+              td 
+                a(href=`/info?item=${item.idClasse}`) #{item.tituloClasse}        
+    
